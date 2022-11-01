@@ -1,0 +1,104 @@
+<div class="authincation h-100">
+  <div class="container vh-100">
+    <div class="row justify-content-center h-100 align-items-center">
+      <div class="col-lg-6 col-md-8">
+        <div class="authincation-content">
+          <div class="row no-gutters">
+            <div class="col-xl-12">
+              <div class="auth-form  d-flex flex-column">
+                <div class="text-center mb-3">
+                  <img src="../../../../assets/images/tf1.png" alt="" width="85" height="85">
+
+
+                </div>
+                <h4 class="text-center mb-4">Rejoignez Talan Food</h4>
+                <form [formGroup]="signupForm">
+                  <div class="form-group">
+                    <input type="text" class="form-control" formControlName="firstName" placeholder="Prénom">
+                  </div>
+                  <div
+                    *ngIf="signupForm.controls['firstName'].invalid && (signupForm.controls['firstName'].touched || signupForm.controls['firstName'].dirty)"
+                    style="color:#BA002B;">
+                        <span *ngIf="signupForm.controls['firstName'].errors?.required">
+                                    Entrez votre prénom</span>
+                    <span class="error" *ngIf="signupForm.controls['firstName'].errors?.minlength">Votre prénom doit contenir au minimum 3 caractères</span>
+                    <span class="error" *ngIf="signupForm.controls['firstName'].errors?.maxlength">Votre prénom doit contenir au maximum 27 caractères</span>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" formControlName="lastName" placeholder="Nom">
+                  </div>
+                  <div
+                    *ngIf="signupForm.controls['lastName'].invalid && (signupForm.controls['lastName'].touched || signupForm.controls['lastName'].dirty)"
+                    style="color:#BA002B;">
+                        <span *ngIf="signupForm.controls['lastName'].errors?.required">
+                                    Entrez votre nom</span>
+                    <span class="error" *ngIf="signupForm.controls['lastName'].errors?.minlength">Votre nom doit contenir au minimum 3 caractères</span>
+                    <span class="error" *ngIf="signupForm.controls['lastName'].errors?.maxlength">Votre nom doit contenir au maximum 27 caractères</span>
+                  </div>
+                  <div class="form-group">
+                    <input type="email" class="form-control" formControlName="email" placeholder="E-mail">
+                  </div>
+                  <div
+                    *ngIf="signupForm.controls['email'].invalid && (signupForm.controls['email'].touched || signupForm.controls['email'].dirty)"
+                    style="color:#BA002B;">
+                        <span *ngIf="signupForm.controls['email'].errors?.required">
+                                    Entrez votre adresse e-mail</span>
+                    <span class="error" *ngIf="signupForm.controls['email'].errors?.email">Votre adresse e-mail est invalide</span>
+                  </div>
+                  <div class="form-group">
+                    <input type="tel" class="form-control" formControlName="phone" placeholder="Numéro de téléphone"
+                           maxlength="8">
+                  </div>
+                  <div
+                    *ngIf="signupForm.controls['phone'].invalid && (signupForm.controls['phone'].touched || signupForm.controls['phone'].dirty)"
+                    style="color:#BA002B;">
+                        <span *ngIf="signupForm.controls['phone'].errors?.required">
+                                    Entrez votre numéro de téléphone</span>
+                    <span class="error" *ngIf="signupForm.controls['phone'].errors?.pattern">Votre numéro de téléphone est invalide</span>
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" formControlName="password" placeholder="Mot de passe">
+                  </div>
+                  <div
+                    *ngIf="signupForm.controls['password'].invalid && (signupForm.controls['password'].touched || signupForm.controls['password'].dirty)"
+                    style="color:#BA002B;">
+                        <span *ngIf="signupForm.controls['password'].errors?.required">
+                                    Entrez votre mot de passe</span>
+                    <span class="error" *ngIf="signupForm.controls['password'].errors?.minlength">Votre mot de passe doit contenir au minimum 7 caractères</span>
+                    <span class="error" *ngIf="signupForm.controls['password'].errors?.maxlength">Votre mot de passe doit contenir au maximum 27 caractères</span>
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" formControlName="confirmPassword"
+                           placeholder="Confirmer votre mot de passe">
+                  </div>
+                  <div
+                    *ngIf="signupForm.controls['confirmPassword'].invalid && (signupForm.controls['confirmPassword'].touched || signupForm.controls['confirmPassword'].dirty)"
+                    style="color:#BA002B;">
+                        <span *ngIf="signupForm.controls['confirmPassword'].errors?.mustMatch">
+                                    Le mot de passe de confirmation est invalide</span>
+                  </div>
+                  <div class="text-center mt-4">
+                    <button type="submit" [disabled]="signupForm.invalid" (click)="signup()"
+                            class="btn btn-primary btn-block">Sign Up
+                    </button>
+                  </div>
+                </form>
+                <div class="new-account mt-3">
+                  <p>Vous avez déjà un compte ? <a class="text-primary"
+                                                   [routerLink]="['/page-login']">Connectez-vous</a></p>
+                </div>
+                <div class="new-account mt-3" style="color:#BA002B;" *ngIf="emailExistMsg">
+                  <p>{{emailExistMsg}}</p>
+                </div>
+                <button style="align-self: center!important; margin-top: 2rem" [routerLink]="['']" mat-mini-fab
+                        color="primary">
+                  <mat-icon>home</mat-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

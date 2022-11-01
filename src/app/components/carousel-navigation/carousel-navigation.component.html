@@ -1,0 +1,21 @@
+<ngb-carousel class="default-carousel" [interval]="2500" [showNavigationArrows]="showNavigationArrows"
+              [showNavigationIndicators]="showNavigationIndicators">
+  <ng-template ngbSlide *ngFor="let image of content?.images; index as i">
+    <a [routerLink]="content.page" rel="nofollow noopener noreferrer">
+      <div class="picsum-img-wrapper">
+        <img [src]="image" alt="Random slide" style="width: 40rem; height: 37rem">
+      </div>
+    </a>
+    <div class="carousel-caption">
+      <h3>{{content.title}}</h3>
+      <p>{{content.description}}</p>
+    </div>
+  </ng-template>
+</ngb-carousel>
+
+<!--<hr>-->
+
+<!--<div class="btn-group" role="group" aria-label="Carousel toggle controls">-->
+<!--  <button type="button" (click)="showNavigationArrows = !showNavigationArrows" class="btn btn-outline-primary btn-sm">Toggle navigation arrows</button>-->
+<!--  <button type="button" (click)="showNavigationIndicators = !showNavigationIndicators" class="btn btn-outline-primary btn-sm">Toggle navigation indicators</button>-->
+<!--</div>-->

@@ -1,0 +1,15 @@
+<div class="nav-header">
+  <a [routerLink]="['']" class="brand-logo">
+
+    <img src="../../../../assets/images/tf1.png" alt="" width="85" height="85">
+
+    <div class="brand-title" style="font-size: 0.8cm; margin-left: 0.1cm;line-height: 0.8cm;text-align: center;">Talan
+      <span style="font-size: 0.7cm;color:rgb(45, 150, 177);text-align: center;">Food</span></div>
+  </a>
+  <div class="nav-control">
+    <div [ngClass]="{'is-active': hamburgerClass, '': !hamburgerClass}" class="hamburger"
+         (click)="toggleHamburgerClass()">
+      <span class="line"></span><span class="line"></span><span class="line"></span>
+    </div>
+  </div>
+</div>
